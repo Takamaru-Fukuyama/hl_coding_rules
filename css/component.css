@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+/* 矢印関連ここから */
+/* 【ノーマル】 */
+.arrow{
+  display: inline-block;
+  color: #000;
+  position: relative;
+  width: 2px;
+  height: 20px;
+  background: currentColor;
+}
+.arrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+}
+.arrow.left{
+  transform: rotate(90deg);
+}
+.arrow.right{
+  transform: rotate(-90deg);
+}
+.arrow.bottom{
+  transform: rotate(0deg);
+}
+.arrow.top{
+  transform: rotate(180deg);
+}
+
+/* 【くの字】 */
+.arrow_ku {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  width: 30px;
+  height: 30px;
+}
+.arrow_ku::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow_ku.top::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.arrow_ku.bottom::before {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.arrow_ku.left::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+.arrow_ku.right::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* 【三角（▲）】 */
+.arrow_delta{
+  display: inline-block;
+  color: #000;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 8px 12px;
+  border-left-color: currentColor;
+  border-right: 0;
+}
+.arrow_delta.top{
+  transform: rotate(-90deg);
+}
+.arrow_delta.bottom{
+  transform: rotate(90deg);
+}
+.arrow_delta.right{
+  transform: rotate(0deg);
+}
+.arrow_delta.left{
+  transform: rotate(-180deg);
+}
+
+/* 矢印関連ここまで */
+
+/* ボタン関連ここから */
+/* aタグ */
+.a_button{
+  display: block;
+  width: 300px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50px;
+  background: #000;
+  color: #fff;
+  padding: 5px 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.b_button{
+  width: 300px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50px;
+  background: #000;
+  color: #fff;
+  padding: 5px 0;
+  transition: all 0.3s;
+}
+.a_button:hover{
+  background: #fff;
+  color: #000;
+}
+.b_button:hover{
+  background: #fff;
+  color: #000;
+}
+/* ボタン関連ここまで */
+
+/* マーカーここから */
+.marker{
+  padding: 0 2px;
+  background: -webkit-linear-gradient(transparent 64%, #fefe4b 0%);
+  background: linear-gradient(transparent 64%, #fefe4b 0%);
+}
+/* マーカーここまで */
+
+/* 変形 */
+.polygon_triangle{
+  width: fit-content;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  padding: 2em 1.5em 0.5em;
+  background: #ffb7b7;
+}
+.polygon_parallelogram{
+  width: fit-content;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  padding: 1em 2em;
+  background: #ffb7b7;
+}
+.polygon_message{
+  width: fit-content;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+  padding: 1em 1em 2em;
+  background: #ffb7b7;
+}

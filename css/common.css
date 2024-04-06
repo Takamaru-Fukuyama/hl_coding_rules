@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+/* フレックスコンテナーここから */
+.flex {
+  display: flex;
+}
+.align_items_center {
+  align-items: center;
+}
+.align_items_start {
+  align-items: flex-start;
+}
+.align_items_end {
+  align-items: flex-end;
+}
+.justify_content_center {
+  justify-content: center;
+}
+.justify_content_start {
+  justify-content: flex-start;
+}
+.justify_content_end {
+  justify-content: flex-end;
+}
+.justify_content_around {
+  justify-content: space-around;
+}
+.justify_content_between {
+  justify-content: space-between;
+}
+.justify_content_evenly {
+  justify-content: space-evenly;
+}
+/* フレックスコンテナーここまで */
+
+/* グリッドコンテナーここから */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+}
+.align_items_grid_center {
+  align-items: center;
+}
+.align_items_grid_start {
+  align-items: start;
+}
+.align_items_grid_end {
+  align-items: end;
+}
+.justify_items_grid_center {
+  justify-items: center;
+}
+.justify_items_grid_start {
+  justify-items: start;
+}
+.justify_items_grid_end {
+  justify-items: end;
+}
+/* グリッドコンテナーここまで */
+
+/* インナーここから */
+.inner_xs {
+  width: 95%;
+  margin: 0 auto;
+}
+.inner_sm {
+  width: 90%;
+  margin: 0 auto;
+}
+.inner_md {
+  width: 85%;
+  margin: 0 auto;
+}
+.inner_lg {
+  width: 80%;
+  margin: 0 auto;
+}
+.inner_xl {
+  width: 75%;
+  margin: 0 auto;
+}
+.inner_xxl {
+  width: 70%;
+  margin: 0 auto;
+}
+/* インナーここまで */
+
+/* 表示/非表示関連ここから */
+/* 区切り幅 396px,576px,768px,992px,1200px,1400px */
+.show_1400,.show_1200,.show_992,.show_768,.show_576,.show_396 {
+  display: none;
+}
+@media (max-width: 1400px) { .show_1400{ display: block; } }
+@media (max-width: 1200px) { .show_1200{ display: block; } }
+@media (max-width: 992px) { .show_992{ display: block; } }
+@media (max-width: 768px) { .show_768{ display: block; } }
+@media (max-width: 576px) { .show_576{ display: block; } }
+@media (max-width: 396px) { .show_396{ display: block; } }
+/* 表示/非表示関連ここまで */
+
+/* ポジション関連ここから */
+.position_relative{
+  position: relative;
+}
+.position_absolute{
+  position: absolute;
+}
+.position_fixed{
+  position: fixed;
+}
+.position_sticky{
+  position: -webkit-sticky;
+  position: sticky;
+}
+.top_0{
+  top: 0;
+}
+.bottom_0{
+  bottom: 0;
+}
+.left_0{
+  left: 0;
+}
+.right_0{
+  right: 0;
+}
+.center_x{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.center_y{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.center_xy{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+/* ポジション関連ここまで */
+
+/* テキスト関連ここから */
+.text_left{
+  text-align: left;
+}
+.text_right{
+  text-align: right;
+}
+.text_center{
+  text-align: center;
+}
+.text_justify{
+  text-align: justify;
+}
+/* テキスト関連ここまで */
+
