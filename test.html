@@ -6,56 +6,697 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/component.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css"
+    />
     <title>CSSテスト</title>
     <style>
-      p{
+      body{
+        padding: 10px;
+      }
+      p {
         margin: 10px;
       }
-      a{
+      div{
+        margin-bottom: 5px;
+      }
+      a {
         margin: 10px 0;
       }
-
+     
+      .bar {
+        margin: 10px 0;
+      }
+      pre {
+        max-width: 33%;
+        margin-left: 20px;
+        padding: 0.5em 0.5em;
+        border-radius: 5px;
+        background: #25292f;
+        color: #fff;
+        white-space: pre-wrap;
+        flex: 1;
+      }
+      header {
+        padding: 20px 10px 0;
+      }
     </style>
   </head>
   <body>
-    <section>
-      <h1>ノーマル矢印</h1>
-      <div class="flex align_items_center"><p>上矢印</p><span class="arrow top"></span></div>
-      <div class="flex align_items_center"><p>下矢印</p><span class="arrow bottom"></span></div>
-      <div class="flex align_items_center"><p>左矢印</p><span class="arrow left"></span></div>
-      <div class="flex align_items_center"><p>右矢印</p><span class="arrow right"></span></div>
-    </section>
-    <section>
-      <h1>くの字矢印</h1>
-      <div class="flex align_items_center"><p>上矢印</p><span class="arrow_ku top"></span></div>
-      <div class="flex align_items_center"><p>下矢印</p><span class="arrow_ku bottom"></span></div>
-      <div class="flex align_items_center"><p>左矢印</p><span class="arrow_ku left"></span></div>
-      <div class="flex align_items_center"><p>右矢印</p><span class="arrow_ku right"></span></div>
-    </section>
-    <section>
-      <h1>三角矢印</h1>
-      <div class="flex align_items_center"><p>上矢印</p><span class="arrow_delta top"></span></div>
-      <div class="flex align_items_center"><p>下矢印</p><span class="arrow_delta bottom"></span></div>
-      <div class="flex align_items_center"><p>左矢印</p><span class="arrow_delta left"></span></div>
-      <div class="flex align_items_center"><p>右矢印</p><span class="arrow_delta right"></span></div>
-    </section>
-    <section>
-      <h1>ボタン</h1>
-      <a href="" class="a_button">aタグ</a>
-      <button class="b_button">buttonタグ</button>
-    </section>
-    <section>
-      <h1>マーカー</h1>
-      <p>.markerクラスの中身に<span class="marker">マーカー</span>が付きます</p>
-    </section>
-    <section>
-      <h1>変形</h1>
-      <p class="polygon_triangle">三角形</p>
-      <p class="polygon_parallelogram">平行四辺形</p>
-      <p class="polygon_message">吹き出し</p>
-    </section>
-    
-    
+    <header>
+      <div class="flex justify_content_between">
+        <h1>CSSコンポネント例</h1>
+        <a href="./coding_rules.html">コーディング規則はこちら</a>
+      </div>
+    </header>
+    <main>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">ノーマル矢印</h1>
+        <div class="flex align_items_center">
+          <div>
+            <div class="flex">
+              <p>上矢印</p>
+              <span class="arrow top"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>下矢印</p>
+              <span class="arrow bottom"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>左矢印</p>
+              <span class="arrow left"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>右矢印</p>
+              <span class="arrow right"></span>
+            </div>
+          </div>
+          <pre>
+            <code class="html">
+&lt;span class="arrow top"&gt;&lt;/span&gt;
+&lt;span class="arrow bottom"&gt;&lt;/span&gt;
+&lt;span class="arrow left"&gt;&lt;/span&gt;
+&lt;span class="arrow right"&gt;&lt;/span&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.arrow{
+  display: inline-block;
+  color: #000;
+  position: relative;
+  width: 2px;
+  height: 20px;
+  background: currentColor;
+}
+.arrow::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+}
+.arrow.left{
+  transform: rotate(90deg);
+}
+.arrow.right{
+  transform: rotate(-90deg);
+}
+.arrow.bottom{
+  transform: rotate(0deg);
+}
+.arrow.top{
+  transform: rotate(180deg);
+}
+          </code>
+        </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">くの字矢印</h1>
+        <div class="flex align_items_center">
+          <div>
+            <div class="flex align_items_center">
+              <p>上矢印</p>
+              <span class="arrow_ku top"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>下矢印</p>
+              <span class="arrow_ku bottom"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>左矢印</p>
+              <span class="arrow_ku left"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>右矢印</p>
+              <span class="arrow_ku right"></span>
+            </div>
+          </div>
+          <pre>
+            <code class="html">
+&lt;span class="arrow_ku top"&gt;&lt;/span&gt;
+&lt;span class="arrow_ku bottom"&gt;&lt;/span&gt;
+&lt;span class="arrow_ku left"&gt;&lt;/span&gt;
+&lt;span class="arrow_ku right"&gt;&lt;/span&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.arrow_ku {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  width: 30px;
+  height: 30px;
+}
+.arrow_ku::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow_ku.top::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.arrow_ku.bottom::before {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.arrow_ku.left::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+.arrow_ku.right::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">三角矢印</h1>
+        <div class="flex align_items_center">
+          <div>
+            <div class="flex align_items_center">
+              <p>上矢印</p>
+              <span class="arrow_delta top"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>下矢印</p>
+              <span class="arrow_delta bottom"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>左矢印</p>
+              <span class="arrow_delta left"></span>
+            </div>
+            <div class="flex align_items_center">
+              <p>右矢印</p>
+              <span class="arrow_delta right"></span>
+            </div>
+          </div>
+          <pre>
+            <code class="html">
+&lt;span class="arrow_delta top"&gt;&lt;/span&gt;
+&lt;span class="arrow_delta bottom"&gt;&lt;/span&gt;
+&lt;span class="arrow_delta left"&gt;&lt;/span&gt;
+&lt;span class="arrow_delta right"&gt;&lt;/span&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.arrow_delta{
+  display: inline-block;
+  color: #000;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 8px 12px;
+  border-left-color: currentColor;
+  border-right: 0;
+}
+.arrow_delta.top{
+  transform: rotate(-90deg);
+}
+.arrow_delta.bottom{
+  transform: rotate(90deg);
+}
+.arrow_delta.right{
+  transform: rotate(0deg);
+}
+.arrow_delta.left{
+  transform: rotate(-180deg);
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">ボタン</h1>
+        <div class="flex align_items_center">
+          <div>
+            <a href="" class="a_button">aタグ</a>
+            <button class="b_button">buttonタグ</button>
+          </div>
+          <pre>
+            <code class="html">
+&lt;a class="a_button"&gt;aタグ&lt;/a&gt;
+&lt;button class="b_button"&gt;buttonタグ&lt;/button&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.a_button{
+  display: block;
+  width: 300px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50px;
+  background: #000;
+  color: #fff;
+  padding: 5px 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.b_button{
+  width: 300px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50px;
+  background: #000;
+  color: #fff;
+  padding: 5px 0;
+  transition: all 0.3s;
+}
+.a_button:hover{
+  background: #fff;
+  color: #000;
+}
+.b_button:hover{
+  background: #fff;
+  color: #000;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">マーカー</h1>
+        <div class="flex align_items_center">
+          <p>
+            .markerクラスの中身に<span class="marker">マーカー</span>が付きます
+          </p>
+          <pre>
+            <code class="html">
+&lt;span class="marker"&gt;マーカー&lt;/span&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.marker{
+  display: inline-block;
+  padding: 0 2px;
+  background: -webkit-linear-gradient(transparent 64%, #fefe4b 0%);
+  background: linear-gradient(transparent 64%, #fefe4b 0%);
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1 class="marker">変形</h1>
+        <div class="flex align_items_center">
+          <div>
+            <div class="polygon_triangle">三角形</div>
+            <div class="polygon_parallelogram">平行四辺形</div>
+            <div class="polygon_message">吹き出し</div>
+          </div>
+          <pre>
+            <code class="html">
+&lt;div class="polygon_triangle"&gt;三角形&lt;/div&gt;
+&lt;div class="polygon_parallelogram"&gt;平行四辺形&lt;/div&gt;
+&lt;div class="polygon_message"&gt;吹き出し&lt;/div&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.polygon_triangle{
+  width: fit-content;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  padding: 2em 1.5em 0.5em;
+  background: #ffb7b7;
+}
+.polygon_parallelogram{
+  width: fit-content;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  padding: 1em 2em;
+  background: #ffb7b7;
+}
+.polygon_message{
+  width: fit-content;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+  padding: 1em 1em 2em;
+  background: #ffb7b7;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1>CSSアコーディオン</h1>
+        <div class="flex align_items_center">
+          <div>
+            <input class="css_accordion_toggle" id="css_accordion_01" type="checkbox" >
+            <label class="css_accordion_label" for="css_accordion_01">ラベル01</label>
+            <div class="css_accordion_cnt">
+              <p>コンテンツ01コンテンツ01コンテンツ01コンテンツ01</p>
+            </div>
+            <input class="css_accordion_toggle" id="css_accordion_02" type="checkbox" >
+            <label class="css_accordion_label" for="css_accordion_02">ラベル02</label>
+            <div class="css_accordion_cnt">
+              <p>コンテンツ02コンテンツ02コンテンツ02コンテンツ02</p>
+            </div>
+            <input class="css_accordion_toggle" id="css_accordion_03" type="checkbox" >
+            <label class="css_accordion_label" for="css_accordion_03">ラベル03</label>
+            <div class="css_accordion_cnt">
+              <p>コンテンツ03コンテンツ03コンテンツ03コンテンツ03</p>
+            </div>
+          </div>
+          <pre>
+            <code class="html">
+&lt;input class="css_accordion_toggle" id="css_accordion_01" type="checkbox" &gt;
+&lt;label class="css_accordion_label" for="css_accordion_01"&gt;ラベル01&lt;/label&gt;
+&lt;div class="css_accordion_cnt"&gt;
+  &lt;p&gt;コンテンツ01コンテンツ01コンテンツ01&lt;/p&gt;
+&lt;/div&gt;
+&lt;input class="css_accordion_toggle" id="css_accordion_02" type="checkbox" &gt;
+&lt;label class="css_accordion_label" for="css_accordion_02"&gt;ラベル02&lt;/label&gt;
+&lt;div class="css_accordion_cnt"&gt;
+  &lt;p&gt;コンテンツ02コンテンツ02コンテンツ02&lt;/p&gt;
+&lt;/div&gt;
+&lt;input class="css_accordion_toggle" id="css_accordion_03" type="checkbox" &gt;
+&lt;label class="css_accordion_label" for="css_accordion_03"&gt;ラベル03&lt;/label&gt;
+&lt;div class="css_accordion_cnt"&gt;
+  &lt;p&gt;コンテンツ03コンテンツ03コンテンツ03&lt;/p&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.css_accordion_toggle{
+  display: none;
+}
+.css_accordion_label{
+  padding: 1em;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  background-color: #000;
+  position: relative;
+}
+.css_accordion_label::before{
+  content:"";
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: rotate(45deg);
+  position: absolute;
+  top:calc( 50% - 3px );
+  right: 20px;
+  transform: rotate(135deg);
+}
+.css_accordion_label,
+.css_accordion_cnt{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: all 0.5s ease;
+}
+.css_accordion_cnt{
+  height: 0;
+  margin-bottom:10px;
+  padding:0 20px;
+  overflow: hidden;
+}
+.css_accordion_toggle:checked + .css_accordion_label + .css_accordion_cnt{
+  height: auto;
+  padding:20px ;
+  transition: all .3s;
+}
+.css_accordion_toggle:checked + .css_accordion_label::before{
+  transform: rotate(-45deg);
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1>ホバーズーム</h1>
+        <div class="flex align_items_center">
+          <div class="hover_zoom_box">
+            <img class="hover_zoom_img" src="./img/dummy01.jpg" alt="">
+          </div>
+          <pre>
+            <code class="html">
+&lt;div class="hover_zoom_box"&gt;
+  &lt;img class="hover_zoom_img" src="./img/dummy01.jpg" alt=""&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+          <pre>
+            <code class="css">
+.hover_zoom_box{
+  width: 300px;
+  overflow: hidden;
+}
+.hover_zoom_img{
+  transition: all 0.5s;
+}
+.hover_zoom_img:hover{
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <div class="bar"></div>
+      <section>
+        <h1>共通CSS</h1>
+        <pre>
+          <code class="css">
+@charset "utf-8";
+/* 基本設定ここから */
+html,body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Open Sans','游ゴシック', 'Yu Gothic', 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: #333;
+  background: #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all  0.3s;
+  color:#333;
+  box-sizing: border-box;
+}
+img {
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+/* 基本設定ここまで */
 
+/* フレックスコンテナーここから */
+.flex {
+  display: flex;
+}
+.align_items_center {
+  align-items: center;
+}
+.align_items_start {
+  align-items: flex-start;
+}
+.align_items_end {
+  align-items: flex-end;
+}
+.justify_content_center {
+  justify-content: center;
+}
+.justify_content_start {
+  justify-content: flex-start;
+}
+.justify_content_end {
+  justify-content: flex-end;
+}
+.justify_content_around {
+  justify-content: space-around;
+}
+.justify_content_between {
+  justify-content: space-between;
+}
+.justify_content_evenly {
+  justify-content: space-evenly;
+}
+/* フレックスコンテナーここまで */
+
+/* グリッドコンテナーここから */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+}
+.align_items_grid_center {
+  align-items: center;
+}
+.align_items_grid_start {
+  align-items: start;
+}
+.align_items_grid_end {
+  align-items: end;
+}
+.justify_items_grid_center {
+  justify-items: center;
+}
+.justify_items_grid_start {
+  justify-items: start;
+}
+.justify_items_grid_end {
+  justify-items: end;
+}
+/* グリッドコンテナーここまで */
+
+/* インナーここから */
+.inner_xs {
+  width: 95%;
+  margin: 0 auto;
+}
+.inner_sm {
+  width: 90%;
+  margin: 0 auto;
+}
+.inner_md {
+  width: 85%;
+  margin: 0 auto;
+}
+.inner_lg {
+  width: 80%;
+  margin: 0 auto;
+}
+.inner_xl {
+  width: 75%;
+  margin: 0 auto;
+}
+.inner_xxl {
+  width: 70%;
+  margin: 0 auto;
+}
+/* インナーここまで */
+
+/* 表示/非表示関連ここから */
+/* 区切り幅 396px,576px,768px,992px,1200px,1400px */
+.show_xxl,.show_xl,.show_lg,.show_md,.show_sm,.show_xs {
+  display: none;
+}
+@media (max-width: 1400px) { .show_xxl{ display: block; } }
+@media (max-width: 1200px) { .show_xl{ display: block; } }
+@media (max-width: 992px) { .show_lg{ display: block; } }
+@media (max-width: 768px) { .show_md{ display: block; } }
+@media (max-width: 576px) { .show_sm{ display: block; } }
+@media (max-width: 396px) { .show_xs{ display: block; } }
+/* 表示/非表示関連ここまで */
+
+/* ポジション関連ここから */
+.position_relative{
+  position: relative;
+}
+.position_absolute{
+  position: absolute;
+}
+.position_fixed{
+  position: fixed;
+}
+.position_sticky{
+  position: -webkit-sticky;
+  position: sticky;
+}
+.top_0{
+  top: 0;
+}
+.bottom_0{
+  bottom: 0;
+}
+.left_0{
+  left: 0;
+}
+.right_0{
+  right: 0;
+}
+.center_x{
+  left: 50%;
+  transform: translateX(-50%);
+}
+.center_y{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.center_xy{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+/* ポジション関連ここまで */
+
+/* テキスト関連ここから */
+.text_left{
+  text-align: left;
+}
+.text_right{
+  text-align: right;
+}
+.text_center{
+  text-align: center;
+}
+.text_justify{
+  text-align: justify;
+}
+/* テキスト関連ここまで */
+
+/* バー */
+.bar{
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+}
+          </code>
+        </pre>
+      </section>
+      
+      <div class="bar"></div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+      // ハイライトを実行
+      hljs.initHighlightingOnLoad();
+    </script>
   </body>
 </html>
